@@ -32,4 +32,11 @@ public class Search {
         }
         return -1;
     }
+    //调用二分查询
+    public static int binarySearch(){
+        int[] arr={4,5,8,9,7,4,2,11,15};
+        int x=7;
+        int res=new Search().binarySearch(arr,x);
+        return res;
+    }
 }

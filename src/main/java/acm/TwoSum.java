@@ -25,5 +25,11 @@ public class TwoSum {
         }
         throw new IllegalArgumentException("no result");
     }
+    public static int[] twoSum(){
+        int[] nums={3,4,5,7};
+        int target=9;
+        int[] res=new TwoSum().twoSum(nums,target);
+        return res;
+    }
 
 }

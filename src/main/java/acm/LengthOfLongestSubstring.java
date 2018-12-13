@@ -34,25 +34,19 @@ public class LengthOfLongestSubstring {
      请注意，答案必须是一个子串，"pwke" 是一个子序列 而不是子串。
      *
      * */
+    //方法1： 暴力法会有缺陷
     public int lengthOfLongestSubstring(String s) {
-//        String sub=null;
-//        List<Character> list=new ArrayList<>();
-//        for (int i=0;i<s.length();i++){
-//            //将每个位置的元素 存入list
-//            Character a=s.charAt(i);
-//            list.add(a);
-//        }
-        int n = s.length();
-        int ans = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j <= n; j++) {
-                //把字符串 和 两个位置传入 ，如果满足没有重复，取长度最大值
-                if (allUnique(s, i, j)) {
-                    ans = Math.max(ans, j - i);
+            int n = s.length();
+            int ans = 0;
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j <= n; j++) {
+                    //把字符串 和 两个位置传入 ，如果满足没有重复，取长度最大值
+                    if (allUnique(s, i, j)) {
+                        ans = Math.max(ans, j - i);
+                    }
                 }
             }
-        }
-        return ans;
+            return ans;
     }
     /**判断是否有重复字符*/
     public boolean allUnique(String s, int start, int end) {
@@ -66,7 +60,23 @@ public class LengthOfLongestSubstring {
         }
         return true;
     }
-
+    //方法2：
+//    public int lengthOfLongestSubstring(String s) {
+//        int n = s.length();
+//        Set<Character> set = new HashSet<>();
+//        int ans = 0, i = 0, j = 0;
+//        while (i < n && j < n) {
+//            // try to extend the range [i, j]
+//            if (!set.contains(s.charAt(j))){
+//                set.add(s.charAt(j++));
+//                ans = Math.max(ans, j - i);
+//            }
+//            else {
+//                set.remove(s.charAt(i++));
+//            }
+//        }
+//        return ans;
+//    }
     public static void main(String[] args) {
         String s="abcdd";
         int res=new LengthOfLongestSubstring().lengthOfLongestSubstring(s);
