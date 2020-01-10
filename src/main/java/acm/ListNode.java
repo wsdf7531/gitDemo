@@ -1,5 +1,11 @@
 package acm;
 
+import util.DateAndTimeUtil;
+
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * @Author: Xusj
  * @Date: 2018/10/17
@@ -53,6 +59,42 @@ public class ListNode {
         ListNode listNode=new ListNode(3);
         ListNode listNode2=new ListNode(4);
         listNode.addTwoNumbers(listNode,listNode2);
+
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+        while (start.compareTo(end) <= 0) {
+            Calendar cal = start;
+//            cal.add(Calendar.DAY_OF_YEAR, -1);
+            Date now = new Date(cal.getTimeInMillis());
+            String dateAt = "";
+            try {
+                dateAt = DateAndTimeUtil.formatToString(now, DateAndTimeUtil.Format_Date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            long noonTime = 0;
+            try {
+                noonTime = DateAndTimeUtil.convertStringToMillisecond(dateAt + " 12:00:00.000", DateAndTimeUtil.Format_FullDateTime);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            String fromTime = "00:00";
+            if (now.getTime() < noonTime) {
+                cal.add(Calendar.DAY_OF_YEAR, -1);
+                try {
+                    dateAt = DateAndTimeUtil.formatToString(new Date(cal.getTimeInMillis()), DateAndTimeUtil.Format_Date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                fromTime = "12:00";
+            }
+
+            int peroid = 12;
+            System.out.println(dateAt+fromTime+peroid);
+            start.add(Calendar.DAY_OF_YEAR,1);
+        }
+
 
     }
 

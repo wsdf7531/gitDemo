@@ -3,6 +3,8 @@ package model;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: Xusj
@@ -16,5 +18,5 @@ public class User {
     private String sex;
     private BigDecimal power;
 
-
+    private List<Strategy> strategyList;
 }
