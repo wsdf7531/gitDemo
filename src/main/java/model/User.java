@@ -4,7 +4,6 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Author: Xusj
@@ -15,8 +14,26 @@ import java.util.Map;
 public class User {
     private String name;
     private Integer age;
+    private Integer source;
     private String sex;
     private BigDecimal power;
 
     private List<Strategy> strategyList;
+
+    private ManageStatus manageStatus;
+
+    public enum ManageStatus {
+        Enable, Disable;
+
+        public static ManageStatus find(int code) {
+            for (ManageStatus stauts : ManageStatus.values()) {
+                if (stauts.ordinal() == code) {
+                    return stauts;
+                }
+            }
+            return null;
+        }
+
+    }
+
 }

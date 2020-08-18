@@ -16,8 +16,15 @@ public class BubbleSort {
         for (int i = 0; i < size; i++) {
             boolean mark = true;
             for (int j = 0; j < size - i - 1; j++) {
-                //从小到大排序
-                if (array[j] > array[j + 1]) {
+//                //从小到大排序
+//                if (array[j] > array[j + 1]) {
+//                    int temp = array[j];
+//                    array[j] = array[j + 1];
+//                    array[j + 1] = temp;
+//                    mark = false;
+//                }
+                //从大到小排序
+                if (array[j] < array[j + 1]) {
                     int temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
