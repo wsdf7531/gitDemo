@@ -3,7 +3,7 @@ package acm;
 /**
  * @Author: Xusj
  * @Date: 2020/1/17
- * @Description:
+ * @Description: 删除重复元素
  */
 public class RemoveDuplicates {
     /**、
@@ -28,5 +28,9 @@ public class RemoveDuplicates {
 
 
         return 1;
+    }
+
+    public static void main(String[] args) {
+
     }
 }

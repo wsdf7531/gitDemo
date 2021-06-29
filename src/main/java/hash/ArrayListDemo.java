@@ -2,6 +2,7 @@ package hash;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @Author: Xusj
@@ -9,7 +10,8 @@ import java.util.Iterator;
  * @Description:
  */
 public class ArrayListDemo {
-    public static void main(String[] srgs){
+
+    public void demo(){
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
         System.out.printf("Before add:arrayList.size() = %d\n", arrayList.size());
@@ -74,4 +76,23 @@ public class ArrayListDemo {
         // 判断ArrayList是否为空
         System.out.println("arrayList is empty: " + arrayList.isEmpty());
     }
+
+
+
+    public void ListExceptionDemo() {
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        for (String item : list) {
+            if ("2".equals(item)) {
+                list.remove(item);
+            }
+        }
+    }
+
+    public static void main(String[] srgs){
+        ArrayListDemo demo = new ArrayListDemo();
+        demo.ListExceptionDemo();
+    }
+
 }
