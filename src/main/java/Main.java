@@ -1,5 +1,5 @@
-import model.User;
-import org.apache.commons.lang3.StringUtils;
+import com.alibaba.fastjson.JSONObject;
+import model.SMKeyPair;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -30,26 +30,25 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
+//        LocalDateTime time = LocalDateTime.now().withDayOfMonth(10).withMonth(8).withHour(16).withMinute(35);
+//        System.out.println(time + " 消失");
+//        for (int i = 0; i < 20; i++) {
+//            time = time.plusHours(5);
+//            System.out.println(time + " 出现");
+//            time = time.plusMinutes(5);
+//            System.out.println(time + " 消失");
+//        }
 
-        List<User> a  = new ArrayList<>();
-        User usera = new User();
-        User userb = new User();
-        User userc = new User();
-        usera.setName("qt4000");
-        userb.setName("qt3550");
-        userc.setName("bj4222");
-        a.add(usera);
-        a.add(userb);
-        a.add(userc);
+        JSONObject jsonObject = new JSONObject();
 
-        for (User user : a){
-            if (!StringUtils.isEmpty(user.getName())){
-                String subChannelNumber = user.getName().substring(2);
-                user.setName(subChannelNumber);
-            }
-        }
+        SMKeyPair smKeyPair = new SMKeyPair();
+        smKeyPair.setPubKey("04e59044f682310efbcf4e8936bed8b8de913b11db1d988d2edad9d39f60caa47f64caac234c2d23180e513cc1d16ed69f5555341848dd79ce64325337af2bee3d");
+        smKeyPair.setPriKey("e1eb862dc370d8c5ff9bb1ae239c332a0fb3550026944287a1d581a1acc4c08d");
+        jsonObject.put("sm2", smKeyPair);
+        String a =  jsonObject.toString();
+        String b =  jsonObject.toJSONString();
         System.out.println(a);
-
+        System.out.println(b);
 
     }
 

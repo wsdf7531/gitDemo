@@ -1,6 +1,5 @@
 package lambda;
 
-import lombok.val;
 import model.Student;
 
 /**
@@ -11,9 +10,6 @@ import model.Student;
 public class LambdaDemo {
 
     public void sort(Student a, Student b){
-        final Integer age;
-        age = Student::getAge;
-
     }
 
 }
